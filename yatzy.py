@@ -64,6 +64,27 @@ def large_straight(dice):
         return sum(dice)
     return 0
 
+def pair(dice):
+    """Score the given roll in the 'Pair' category
+
+    >>> pair([1,2,3,4,4])
+    8
+    >>> pair([1,2,3,4,5])
+    0
+
+    It uses the highest scoring pair if there is more than one pair
+
+    >>> pair([1,3,3,4,4])
+    8
+    >>> pair([3,3,3,4,4])
+    8
+    """
+
+    counts = dice_counts(dice)
+    for i in range(6, 0, -1):
+        if counts[i] >= 2:
+            return i * 2
+    return 0
 
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice
@@ -81,3 +102,4 @@ def dice_counts(dice):
 
     return {x: dice.count(x) for x in range(1, 7)}
 
+print(list(range(6, 0, -1)))

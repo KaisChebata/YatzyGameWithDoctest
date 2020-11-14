@@ -1,6 +1,5 @@
 from operator import itemgetter
 
-
 # to run test in command line do: 
 # 1- to run default test: python -m doctest <filename>
     # python -m doctest yatzy.py
@@ -37,4 +36,35 @@ def chance(dice):
     15
     """
     return sum(dice)
+
+def yatzy(dice):
+    """Score the given roll in the 'Yatzy' category
+
+    >>> yatzy([1,1,1,1,1])
+    50
+    >>> yatzy([4,4,4,4,4])
+    50
+    >>> yatzy([4,4,4,4,1])
+    0
+    """
+    counts = dice_counts(dice)
+    if 5 in counts.values():
+        return 50
+    return 0
+
+def dice_counts(dice):
+    """Make a dictionary of how many of each value are in the dice
+
+    >>> dice_counts([1,2,2,3,3])
+    {1: 1, 2: 2, 3: 2, 4: 0, 5: 0, 6: 0}
+
+    This function only accepts collections containing integers:
+
+    >>> dice_counts("12345")  #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:  Can't convert 'int' object to str implicitly
+    """
+
+    return {x: dice.count(x) for x in range(1, 7)}
 

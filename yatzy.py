@@ -52,6 +52,19 @@ def yatzy(dice):
         return 50
     return 0
 
+def large_straight(dice):
+    """Score the given roll in the 'Large Straight' Yatzy category.
+
+    >>> large_straight([2,3,4,5,6])
+    20
+    >>> large_straight([1,2,3,4,5])
+    0
+    """
+    if sorted(dice) == [2, 3, 4, 5, 6]:
+        return sum(dice)
+    return 0
+
+
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice
 

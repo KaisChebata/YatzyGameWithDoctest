@@ -1,5 +1,14 @@
 from operator import itemgetter
 
+
+# to run test in command line do: 
+# 1- to run default test: python -m doctest <filename>
+    # python -m doctest yatzy.py
+# 2- to run test with verbos: python -m doctest <filename> -v
+    # python -m doctest yatzy.py -v
+# 3- to run tests with pytest: python -m pytest --doctest-modules
+
+
 def small_straight(dice):
     """Score the given roll in the 'small straight' yatzy category
     
@@ -19,9 +28,13 @@ def small_straight(dice):
         return sum(dice)
     return 0
 
-# to run test in command line do: 
-# 1- to run default test: python -m doctest <filename>
-    # python -m doctest yatzy.py
-# 2- to run test with verbos: python -m doctest <filename> -v
-    # python -m doctest yatzy.py -v
-# 3- to run tests with pytest: python -m pytest --doctest-modules
+def chance(dice):
+    """Score the given role in the 'Chance' Yatzy category
+
+    >>> chance([5,5,5,5,5])
+    25
+    >>> chance([1,2,3,4,5])
+    15
+    """
+    return sum(dice)
+

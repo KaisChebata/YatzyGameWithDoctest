@@ -8,7 +8,7 @@ def small_straight(dice):
     >>> small_straight([1, 2, 3, 5, 5])
     0
 
-    It also handle sets, or unsorted lists
+    It also handle sets and unsorted lists
 
     >>> small_straight({1, 2, 3, 4, 5})
     15

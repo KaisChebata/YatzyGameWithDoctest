@@ -199,6 +199,18 @@ def fours(dice):
     """
     return dice_counts(dice)[4] * 4
 
+def fives(dice):
+    """Score the given roll in the 'Fives' category
+
+    >>> fives([5,5,5,6,6])
+    15
+    >>> fives([1,1,1,6,6])
+    0
+    """
+    return dice_counts(dice)[5] * 5
+
+
+
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice
 

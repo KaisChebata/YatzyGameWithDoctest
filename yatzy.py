@@ -169,7 +169,35 @@ def ones(dice):
     """
     return dice_counts(dice)[1]
 
+def twos(dice):
+    """Score the given roll in the 'Twos' category
 
+    >>> twos([1,2,3,4,5])
+    2
+    >>> twos([3,4,5,6,6])
+    0
+    """
+    return dice_counts(dice)[2] * 2
+
+def threes(dice):
+    """Score the given roll in the 'Threes' category
+
+    >>> threes([3,3,3,3,5])
+    12
+    >>> threes([5,5,6,6,6])
+    0
+    """
+    return dice_counts(dice)[3] * 3
+
+def fours(dice):
+    """Score the given roll in the 'Fours' category
+
+    >>> fours([4,4,4,5,5])
+    12
+    >>> fours([5,5,6,6,6])
+    0
+    """
+    return dice_counts(dice)[4] * 4
 
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice

@@ -103,6 +103,22 @@ def three_of_a_kind(dice):
             return i * 3
     return 0
 
+def four_of_a_kind(dice):
+    """Score the given roll in the 'Four of a kind' category
+
+    >>> four_of_a_kind([1,6,6,6,6])
+    24
+    >>> four_of_a_kind([1,1,6,6,6])
+    0
+    """
+    counts = dice_counts(dice)
+
+    for i in range(1, 7):
+        if counts[i] >= 4:
+            return i * 4
+    return 0
+
+
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice
 

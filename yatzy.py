@@ -159,6 +159,16 @@ def full_house(dice):
     return 0
 
 
+def ones(dice):
+    """Score the given roll in the 'Ones' category
+
+    >>> ones([1,1,3,4,5])
+    2
+    >>> ones([3,4,5,6,6])
+    0
+    """
+    return dice_counts(dice)[1]
+
 
 
 def dice_counts(dice):

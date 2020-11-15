@@ -118,6 +118,26 @@ def four_of_a_kind(dice):
             return i * 4
     return 0
 
+def two_pairs(dice):
+    """Score the given roll in the 'Two Pairs' category
+
+    The score is calculated as the sum of all the dice
+    belonging to the two pairs
+
+    >>> two_pairs([1,1,3,4,4])
+    10
+    >>> two_pairs([2,2,3,4,4])
+    12
+
+    >>> two_pairs([2,2,3,4,5])
+    0
+
+    """
+    counts = dice_counts(dice)
+
+    pairs = [i for i in range(1, 7) if counts[i] >= 2]
+    return sum(pairs) * 2 if len(pairs) == 2 else 0
+
 
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice

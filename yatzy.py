@@ -237,3 +237,21 @@ def dice_counts(dice):
     return {x: dice.count(x) for x in range(1, 7)}
 
 
+def scores_in_categories(dice, categories=(chance, ones, twos, threes, 
+                                           fours, fives, sixes, pair, 
+                                           two_pairs, three_of_a_kind, 
+                                           four_of_a_kind, small_straight, 
+                                           large_straight, full_house,
+                                           yatzy)):
+    """Score the dice in each category and return those with a non-zero score.
+
+    >>> scores_in_categories([1,1,2,2,2], (ones, full_house)) #doctest: +ELLIPSIS
+    [(8, <function full_house at ...>), (2, <function ones at ...>)]
+
+    >>> scores = scores_in_categories([1,1,2,2,2], (full_house, ones, three_of_a_kind))
+    >>> [(score, category.__name__) for (score, category) in scores]
+    [(8, 'full_house'), (6, 'three_of_a_kind'), (2, 'ones')]
+    """
+    scores = [(category(dice), category) 
+                for category in categories]
+    return sorted(scores, reverse=True, key=itemgetter(0))

@@ -209,6 +209,15 @@ def fives(dice):
     """
     return dice_counts(dice)[5] * 5
 
+def sixes(dice):
+    """Score the given roll in the 'Sixes' category
+
+    >>> sixes([1,1,1,6,6])
+    12
+    >>> sixes([1,1,1,3,3])
+    0
+    """
+    return dice_counts(dice)[6] * 6
 
 
 def dice_counts(dice):

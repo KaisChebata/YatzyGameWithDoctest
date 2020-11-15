@@ -86,6 +86,23 @@ def pair(dice):
             return i * 2
     return 0
 
+def three_of_a_kind(dice):
+    """Score the given roll in the 'Three of a kind' category
+
+    >>> three_of_a_kind([1,1,5,5,5])
+    15
+    >>> three_of_a_kind([1,5,5,5,5])
+    15
+    >>> three_of_a_kind([1,2,3,4,5])
+    0
+    """
+    counts = dice_counts(dice)
+
+    for i in range(1, 7):
+        if counts[i] >= 3:
+            return i * 3
+    return 0
+
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice
 
@@ -102,4 +119,4 @@ def dice_counts(dice):
 
     return {x: dice.count(x) for x in range(1, 7)}
 
-print(list(range(6, 0, -1)))
+

@@ -138,6 +138,28 @@ def two_pairs(dice):
     pairs = [i for i in range(1, 7) if counts[i] >= 2]
     return sum(pairs) * 2 if len(pairs) == 2 else 0
 
+def full_house(dice):
+    """Score the given roll in the 'Full House' category
+
+    >>> full_house([1,1,2,2,2])
+    8
+    >>> full_house([6,6,6,2,2])
+    22
+
+    >>> full_house([1,2,3,4,5])
+    0
+    >>> full_house([1,2,2,1,3])
+    0
+    """
+
+    counts = dice_counts(dice)
+
+    if 2 in counts.values() and 3 in counts.values():
+        return sum(dice)
+    return 0
+
+
+
 
 def dice_counts(dice):
     """Make a dictionary of how many of each value are in the dice
